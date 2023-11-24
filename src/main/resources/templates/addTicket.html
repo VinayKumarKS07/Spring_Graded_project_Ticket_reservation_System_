@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Page Title</title>
+  <!-- Include Bootstrap for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+  <h2 class="mb-4">Ticket Form</h2>
+
+  <form th:action="@{/Tickets/process}" th:object="${Tickets}" method="post">
+    <div class="form-group">
+      <label for="tid">ID</label>
+      <input type="number" class="form-control" id="tid" th:field="*{id}" placeholder="Enter the ID">
+    </div>
+
+    <div class="form-group">
+      <label for="ticketName">Ticket Name</label>
+      <input type="text" class="form-control" id="ticketName" th:field="*{ticketTitle}" placeholder="Enter the Name">
+    </div>
+
+    <div class="form-group">
+      <label for="ticketDescription">Ticket Description</label>
+      <textarea class="form-control" id="ticketDescription" th:field="*{ticketShortDescription}" placeholder="Enter the Description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" th:field="*{date}" value="date">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
